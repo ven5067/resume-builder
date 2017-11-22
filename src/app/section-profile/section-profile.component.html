@@ -1,0 +1,34 @@
+<section class="resume-section p-3 p-lg-5 d-flex d-column" id="about">
+  <div class="my-auto">
+    <h1 class="mb-0">{{firstName}}
+      <span class="text-primary">{{lastName}}</span>
+    </h1>
+    <div class="subheading mb-5">{{phone_no}} ·
+      <a href="mailto:{{email}}">{{email}}</a>
+    </div>
+
+    <div class="form-inline">
+      <div class="form-group">
+        <input
+         type="text"
+         class="form-control"
+         placeholder="FirstName"
+         [(ngModel)]="firstName">
+      </div>&nbsp;
+      <div class="form-group">
+        <input type="text"
+          class="form-control"
+          placeholder="LastName"
+          [(ngModel)]="lastName">
+      </div>&nbsp;
+      <div class="form-group">
+        <input
+         type="email"
+         class="form-control"
+         [(ngModel)]="email">
+      </div>&nbsp;
+      <button type="submit" class="btn btn-default" (click)="onProfileAdd()">Add</button>
+    </div>
+
+  </div>
+</section>
