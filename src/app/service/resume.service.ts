@@ -21,9 +21,42 @@ export class ResumeService implements OnInit {
             subject: 'Resume'
           };
 
+        this.styles = {
+          header: {
+            fontSize: 14,
+            bold: true,
+            color: '#29b4e3'
+          },
+          subheader: {
+            fontSize: 12,
+            bold: true
+          },
+          email: {
+            fontSize: 12,
+          },
+          quote: {
+            italics: true
+          },
+          small: {
+            fontSize: 8
+          }
+        };
+
+        this.defaultStyle = {
+          alignment: 'justify'
+        };
+
+        this.footer = function() {
+          return {
+             text: '500 S. KRAEMER BOULEVARD, SUITE 301 BREA, CA 92821, ||| (714) 579 - 7979 ||| NISUM.COM  ',
+             alignment: 'center',
+             fontSize: 10
+          };
+        };
+
         // setting of content
         // this.content[0] = this.getCompanyLogo();
-
+        
     }
 
     setProfile(firstName: string, lastName: string, email: string, phone_no: string) {
