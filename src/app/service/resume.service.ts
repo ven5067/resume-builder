@@ -61,15 +61,10 @@ export class ResumeService implements OnInit {
       };
 
       const summaryObj = {
-        ul: []
+        ul: summaryItems
       };
 
-      for (const summaryItem of summaryItems) {
-        summaryObj.ul.push(summaryItem);
-      }
-
       this.content[1] = [professionalSummaryHeader, summaryObj];
-      // console.log(this.content);
     }
 
     setExperience(expItems: string[]) {
@@ -86,12 +81,8 @@ export class ResumeService implements OnInit {
       };
 
       const expObj = {
-        ul: []
+        ul: expItems
       };
-
-      for (const expItem of expItems) {
-        expObj.ul.push(expItems);
-      }
 
       this.content[2] = [experienceHeader, expObj];
     }
@@ -111,12 +102,8 @@ export class ResumeService implements OnInit {
       };
 
       const eduObj = {
-        ul: []
+        ul: eduItems
       };
-
-      for (const eduItem of eduItems) {
-        eduObj.ul.push(eduItem);
-      }
 
       this.content[3] = [educationHeader, eduObj];
     }
