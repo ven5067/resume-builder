@@ -13,7 +13,7 @@ export class SectionProfileComponent implements OnInit {
   firstName = 'VenuGopal';
   lastName = 'Meesala';
   email = 'vmeesala@nisum.com';
-  phone_no = '+91 8688-126-345';
+  phone_no = '8688-126-345';
 
   constructor(private resumeService: ResumeService) { }
 
@@ -21,7 +21,7 @@ export class SectionProfileComponent implements OnInit {
   }
 
   onProfileAdd() {
-    // this.resumeService
+    this.resumeService.setProfile(this.firstName, this.lastName, this.email, this.phone_no);
   }
 
 }

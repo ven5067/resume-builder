@@ -1,3 +1,4 @@
+import { ResumeService } from './../service/resume.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,18 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SectionProfessionalSummaryComponent implements OnInit {
 
-  summary: string[] = [
-    'Hands on experience programming in Core Java.',
-    'Working Knowledge in Web Services.',
-    'Good exposure to Web/Application servers Tomcat.',
-  ];
+  summary: string[] = [];
 
-  constructor() { }
+  constructor(private resumeService: ResumeService) { }
 
   ngOnInit() {
   }
 
   onAddSummary(summaryItem: string) {
     this.summary.push(summaryItem);
+    this.resumeService.setProfessionalSummary(this.summary);
   }
 }

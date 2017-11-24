@@ -302,8 +302,7 @@ export class SectionResumePreviewComponent implements OnInit {
   }
 
   previewResume() {
-    // pdfMake.createPdf(this.docDefinition).open();
-    // console.log(JSON.stringify(this.resumeService.getDocDefinition()));
+    console.log(JSON.stringify(this.resumeService.getDocDefinition()));
     pdfMake.createPdf(this.resumeService.getDocDefinition()).open();
 
   }
