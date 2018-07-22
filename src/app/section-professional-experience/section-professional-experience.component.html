@@ -4,17 +4,123 @@
 
     <div class="resume-item d-flex flex-column flex-md-row mb-5">
       <div class="resume-content mr-auto">
-        <h3 class="mb-0">Nisum Recruitment Portal</h3>
-        <div class="subheading mb-3">Sofware Developer</div>
-        <div class="subheading mb-3">March 2013 - Present</div>
-        <div class="subheading-company mb-3">Nisum Consulting Pvt Ltd.</div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <input type="text"
+                        class="form-control"
+                        placeholder="Project Name"
+                        [(ngModel)]="projectName">
+              </div>&nbsp;
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <input type="text"
+                        class="form-control"
+                        placeholder="Designation"
+                        [(ngModel)]="designation">
+              </div>&nbsp;
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <input type="text"
+                        class="form-control"
+                        placeholder="Duration"
+                        [(ngModel)]="duration">
+              </div>&nbsp;
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <input type="text"
+                        class="form-control"
+                        placeholder="Organization"
+                        [(ngModel)]="organization">
+              </div>&nbsp;
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-3">
+              <div class="subheading mb-3">Technologies:</div>
+            </div>
+            <div class="col-md-9">
+              <tag-input [(ngModel)]="technologies"></tag-input>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-3">
+              <div class="subheading mb-3">Tools:</div>
+            </div>
+            <div class="col-md-9">
+              <tag-input [(ngModel)]="tools"></tag-input>
+            </div>
+          </div>
+          <br>
+
+          <div class="subheading mb-3">Project Description:</div>
+          <div class="row">
+              <div class="col-md-12">
+                <textarea class="form-control" [(ngModel)]="projectDescription"></textarea>
+            </div>
+          </div> &nbsp;
+          <p>Eg. Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.</p>
+          <br>
+          <div class="my-auto">
+            <div class="subheading mb-3">Responsibilities:</div>
+              <div class="row">
+                <div class="col-md-8">
+                  <div class="form-group">
+                  <input type="text"
+                         class="form-control"
+                         placeholder="Eg. Involved in Bug fixing."
+                         [(ngModel)]="responsibility">
+                </div>&nbsp;
+              </div>
+              <div class="col-md-4">
+              <button type="button" class="btn btn-primary" (click)="onAdd()">Add</button>
+              <button type="button" class="btn btn-primary" (click)="onSubmit()">Submit</button>
+            </div>
+          </div>
+
+          <ul class="fa-ul mb-0">
+            <li *ngFor="let responsibility of responsibilities">
+              <i class="fa-li fa fa-check"></i>
+                {{ responsibility }}
+              </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="resume-item d-flex flex-column flex-md-row mb-5" *ngFor="let experience of professionalExperience">
+      <div class="resume-content mr-auto">
+        <h3 class="mb-0">{{ experience.projectName }}</h3>
+        <div class="subheading mb-3">{{ experience.designation }}</div>
+        <div class="subheading mb-3">{{ experience.duration }}</div>
+        <div class="subheading-company mb-3">{{ experience.organization }}</div>
 
        <div class="row">
          <div class="col-md-3">
           <div class="subheading mb-3">Technologies:</div>
          </div>
          <div class="col-md-9">
-          <tag-input></tag-input>
+            <ul class="fa-ul mb-0">
+              <li *ngFor="let technology of experience.technologies">
+                <i class="fa-li fa fa-check">
+                  {{ technology }}
+                </i>
+              </li>
+            </ul>
          </div>
        </div>
 
@@ -23,41 +129,27 @@
          <div class="subheading mb-3">Tools:</div>
         </div>
         <div class="col-md-9">
-         <tag-input></tag-input>
-        </div>
-      </div>
-      <br>
-
-        <p>Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.</p>
-        <br>
-        <div class="my-auto">
-          <div class="subheading mb-3">Responsibilities:</div>
-          <div class="row">
-              <div class="col-md-8">
-                <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Eg. Involved in Bug fixing.">
-                </div>&nbsp;
-              </div>
-              <div class="col-md-4">
-                <button type="submit" class="btn btn-primary">Add</button>
-              </div>
-          </div>
-
           <ul class="fa-ul mb-0">
-            <li>
+            <li *ngFor="let tool of experience.tools">
               <i class="fa-li fa fa-check"></i>
-              Involved in development of the Spring Controller.
-              </li>
-            <li>
-              <i class="fa-li fa fa-check"></i>
-              Involved in Bug fixing.</li>
-            <li>
-              <i class="fa-li fa fa-check"></i>
-              Involved in writing test cases with Junit framework.</li>
+                {{ tool }}
+            </li>
           </ul>
         </div>
       </div>
+      <br/>
+      <p>{{ experience.projectDescription }}</p>
+      <br>
+      <div class="my-auto">
+        <div class="subheading mb-3">Responsibilities:</div>
+        <ul class="fa-ul mb-0">
+          <li *ngFor="let responsibility of experience.responsibilities">
+            <i class="fa-li fa fa-check"></i>
+            {{ responsibility }}
+          </li>
+        </ul>
+      </div>
+      </div>
     </div>
   </div>
-
 </section>

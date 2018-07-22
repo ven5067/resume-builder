@@ -1,4 +1,4 @@
-import { ResumeService } from './../service/resume.service';
+import { ResumeService } from '../service/resume.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { Profile } from '../model/profile.model';
 
@@ -20,12 +20,12 @@ export class SectionProfileComponent implements OnInit {
 
   ngOnInit() { }
 
-  onProfileAdd() {
+  onAdd() {
     this.resumeService.setProfile(this.firstName, this.lastName, this.email, this.phone_no);
     this.isEditable = false;
   }
 
-  onProfileEdit() {
+  onEdit() {
     this.isEditable = true;
   }
 
