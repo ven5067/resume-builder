@@ -1,4 +1,4 @@
-import { ResumeService } from './../service/resume.service';
+import { ResumeService } from '../service/resume.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,16 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SectionEducationComponent implements OnInit {
 
-  eduItems: string[] = [];
+  item: String = '';
+  items: String[] = [];
 
   constructor(private resumeService: ResumeService) { }
 
   ngOnInit() {
   }
 
-  onAddEducation(eduItem: string) {
-    this.eduItems.push(eduItem);
-    this.resumeService.setEducation(this.eduItems);
+  onAdd() {
+    this.items.push(this.item);
+    this.resumeService.setEducation(this.items);
+    this.onClear();
+  }
+
+  onClear() {
+    this.item = '';
   }
 
 }

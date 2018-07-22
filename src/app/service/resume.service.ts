@@ -1,4 +1,4 @@
-import { Resume } from './../model/Resume.model';
+import { Resume } from '../model/Resume.model';
 import { OnInit } from '@angular/core';
 import { log } from 'util';
 
@@ -56,10 +56,10 @@ export class ResumeService implements OnInit {
 
         // setting of content
         // this.content[0] = this.getCompanyLogo();
-        
+
     }
 
-    setProfile(firstName: string, lastName: string, email: string, phone_no: string) {
+    setProfile(firstName: String, lastName: String, email: String, phone_no: String) {
         const fullName: any = {
             text: firstName + ' ' + lastName,
             style: 'subheader'
@@ -80,7 +80,7 @@ export class ResumeService implements OnInit {
         this.content[0] = [fullName, mobile, emailAddr];
     }
 
-    setProfessionalSummary(summaryItems: string[]) {
+    setProfessionalSummary(summaryItems: String[]) {
       const professionalSummaryHeader = {
         text: [
           {
@@ -100,7 +100,7 @@ export class ResumeService implements OnInit {
       this.content[1] = [professionalSummaryHeader, summaryObj];
     }
 
-    setExperience(expItems: string[]) {
+    setExperience(expItems: String[]) {
       const experienceHeader = {
         text: [
           {
@@ -120,7 +120,7 @@ export class ResumeService implements OnInit {
       this.content[2] = [experienceHeader, expObj];
     }
 
-    setEducation(eduItems: string[]) {
+    setEducation(eduItems: String[]) {
 
       const educationHeader = {
         text: [

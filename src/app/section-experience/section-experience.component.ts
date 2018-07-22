@@ -1,4 +1,4 @@
-import { ResumeService } from './../service/resume.service';
+import { ResumeService } from '../service/resume.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,16 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SectionExperienceComponent implements OnInit {
 
-  expItems: string[] = [];
+  item: String = '';
+  items: String[] = [];
 
   constructor( private resumeService: ResumeService) { }
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  onAdd() {
+    this.items.push(this.item);
+    this.resumeService.setExperience(this.items);
+    this.onClear();
   }
 
-  onAddExperience(expItem: string) {
-    this.expItems.push(expItem);
-    this.resumeService.setExperience(this.expItems);
+  onClear() {
+    this.item = '';
   }
 
 }

@@ -2,107 +2,26 @@
   <div class="my-auto">
     <h2 class="mb-5">Technical Skills</h2>
 
-    <div class="subheading mb-3">UI Technologies &amp; Tools:</div>
-    <tag-input></tag-input>
-    
-    <ul class="list-inline list-icons">
-      <li class="list-inline-item">
-        <i class="devicons devicons-html5"></i>
-      </li>
-      <li class="list-inline-item">
-        <i class="devicons devicons-css3"></i>
-      </li>
-      <li class="list-inline-item">
-        <i class="devicons devicons-javascript"></i>
-      </li>
-      <li class="list-inline-item">
-        <i class="devicons devicons-jquery"></i>
-      </li>
-      <li class="list-inline-item">
-        <i class="devicons devicons-sass"></i>
-      </li>
-      <li class="list-inline-item">
-        <i class="devicons devicons-less"></i>
-      </li>
-      <li class="list-inline-item">
-        <i class="devicons devicons-bootstrap"></i>
-      </li>
-      <li class="list-inline-item">
-        <i class="devicons devicons-wordpress"></i>
-      </li>
-      <li class="list-inline-item">
-        <i class="devicons devicons-grunt"></i>
-      </li>
-      <li class="list-inline-item">
-        <i class="devicons devicons-gulp"></i>
-      </li>
-      <li class="list-inline-item">
-        <i class="devicons devicons-npm"></i>
-      </li>
-    </ul>
+    <div class="row">
+        <div class="col-md-8">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Eg. UI Technologies." [(ngModel)]="item">
+          </div>&nbsp;
+        </div>
+        <div class="col-md-4">
+          <button type="submit" class="btn btn-primary" (click)="onAdd()">Add</button>
+        </div>
+      </div>
+    <tag-input [(ngModel)]='inputItems'></tag-input>
+    <br/>
 
-    <div class="subheading mb-3">UI Frameworks &amp; Tools:</div>
-    <tag-input></tag-input>
-    
-    <ul class="list-inline list-icons">
-      <li class="list-inline-item">
-        <i class="devicons devicons-sass"></i>
-      </li>
-      <li class="list-inline-item">
-        <i class="devicons devicons-less"></i>
-      </li>
-      <li class="list-inline-item">
-        <i class="devicons devicons-bootstrap"></i>
-      </li>
-      <li class="list-inline-item">
-        <i class="devicons devicons-wordpress"></i>
-      </li>
-    </ul>
-
-    <div class="subheading mb-3">Programming Languages &amp; Tools:</div>
-    <tag-input></tag-input>
-    
-    <ul class="list-inline list-icons">
-      <li class="list-inline-item">
-        <i class="devicons devicons-html5"></i>
-      </li>
-      <li class="list-inline-item">
-        <i class="devicons devicons-javascript"></i>
-      </li>
-    </ul>
-
-    <div class="subheading mb-3">Backend Frameworks &amp; Tools:</div>
-    <tag-input></tag-input>
-    
-    <ul class="list-inline list-icons">
-      <li class="list-inline-item">
-        <i class="devicons devicons-wordpress"></i>
-      </li>
-      <li class="list-inline-item">
-        <i class="devicons devicons-grunt"></i>
-      </li>
-      <li class="list-inline-item">
-        <i class="devicons devicons-gulp"></i>
-      </li>
-      <li class="list-inline-item">
-        <i class="devicons devicons-npm"></i>
-      </li>
-    </ul>
-
-    <div class="subheading mb-3">Databases &amp; Tools:</div>
-    <tag-input></tag-input>
-    
-    <ul class="list-inline list-icons">
-      <li class="list-inline-item">
-        <i class="devicons devicons-bootstrap"></i>
-      </li>
-      <li class="list-inline-item">
-        <i class="devicons devicons-wordpress"></i>
-      </li>
-      <li class="list-inline-item">
-        <i class="devicons devicons-gulp"></i>
-      </li>
-    </ul>
-
+    <div *ngFor="let skill of skills">
+      <div class="subheading mb-3">{{skill.item}}</div>
+      <ul class="list-inline list-icons" *ngFor="let item of skill.inputItems">
+        <li class="list-inline-item">
+          <i class="devicons">{{ item }}</i>
+        </li>
+      </ul>
+    </div>
   </div>
 </section>

@@ -1,1 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+
+.space-left-3 {
+  border-left: 30px;
+}

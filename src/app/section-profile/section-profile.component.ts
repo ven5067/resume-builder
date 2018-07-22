@@ -9,19 +9,24 @@ import { Profile } from '../model/profile.model';
 })
 export class SectionProfileComponent implements OnInit {
 
-  // profile: Profile;
-  firstName = 'VenuGopal';
-  lastName = 'Meesala';
-  email = 'vmeesala@nisum.com';
-  phone_no = '8688-126-345';
+  firstName: String = 'FirstName';
+  lastName: String = 'LastName';
+  email: String = 'your_mail@gmail.com';
+  phone_no: String = '8688-126-345';
+
+  isEditable: Boolean = true;
 
   constructor(private resumeService: ResumeService) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   onProfileAdd() {
     this.resumeService.setProfile(this.firstName, this.lastName, this.email, this.phone_no);
+    this.isEditable = false;
+  }
+
+  onProfileEdit() {
+    this.isEditable = true;
   }
 
 }

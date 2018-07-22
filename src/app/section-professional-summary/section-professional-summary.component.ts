@@ -1,4 +1,4 @@
-import { ResumeService } from './../service/resume.service';
+import { ResumeService } from '../service/resume.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,15 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SectionProfessionalSummaryComponent implements OnInit {
 
-  summary: string[] = [];
+  item: String = '';
+  items: String[] = [];
 
   constructor(private resumeService: ResumeService) { }
 
-  ngOnInit() {
+  ngOnInit() { }
+
+  onAdd() {
+    this.items.push(this.item);
+    this.resumeService.setProfessionalSummary(this.items);
+    this.onClear();
   }
 
-  onAddSummary(summaryItem: string) {
-    this.summary.push(summaryItem);
-    this.resumeService.setProfessionalSummary(this.summary);
+  onClear() {
+    this.item = '';
   }
 }
